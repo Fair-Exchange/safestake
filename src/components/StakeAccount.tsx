@@ -1,6 +1,6 @@
 import { Button, CircularProgress, Collapse, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, List, ListItem, ListItemText, TextField, Tooltip } from "@material-ui/core";
 //import { ExpandLess, ExpandMore, OpenInNew } from "@material-ui/icons";
-import { LAMPORTS_PER_SOL, PublicKey, StakeActivationData, StakeProgram } from "@solana/web3.js";
+import { LAMPORTS_PER_SAFE, PublicKey, StakeActivationData, StakeProgram } from "@safecoin/web3.js";
 import BN from "bn.js";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { sendTransaction, useConnection, useSendConnection, useSolanaExplorerUrlSuffix } from "../contexts/connection";
@@ -100,7 +100,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
           </Tooltip> */}
           <br />
           
-          <span className="text-lg font-bold leading-3">{stakeAccountMeta.lamports / LAMPORTS_PER_SOL} SOL</span><br />
+          <span className="text-lg font-bold leading-3">{stakeAccountMeta.lamports / LAMPORTS_PER_SAFE} SAFE</span><br />
           {/* <span className="text-xs leading-none">$X</span> */}
         </div>
         <div className="w-full pb-3 md:pb-0 md:w-2/12 md:pl-5 whitespace-nowrap leading-5">
@@ -112,7 +112,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
             <>
               <p>Validator:{' '}
                 <a
-                  href={`https://explorer.solana.com/address/${voteAccountAddress?.toBase58()}${urlSuffix}`}
+                  href={`https://explorer.safecoin.org/address/${voteAccountAddress?.toBase58()}${urlSuffix}`}
                   rel="noopener noreferrer" target="_blank"
                   className="font-bold"
                 >
@@ -227,7 +227,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
           </CopyToClipboard>
 
           {/* External button */}
-          <a className="pb-0.5 whitespace-nowrap cursor-pointer" href={`https://explorer.solana.com/address/${stakeAccountMeta.address?.toBase58()}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
+          <a className="pb-0.5 whitespace-nowrap cursor-pointer" href={`https://explorer.safecoin.org/address/${stakeAccountMeta.address?.toBase58()}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mb-0.5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
@@ -249,7 +249,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                 <div className="flex items-center justify-between">
                   <span>
                     <span className="ml-4">Rewards </span>
-                    <span className="font-normal">{totalRewards / LAMPORTS_PER_SOL} SOL </span>
+                    <span className="font-normal">{totalRewards / LAMPORTS_PER_SAFE} SAFE </span>
                     <span className="text-xs">{(APR && formatPct.format(APR)) || '-'} APR </span>
                   </span>
                   <span className="ico-plus" hidden={stakeAccountMeta.inflationRewards.length === 0}>
@@ -271,8 +271,8 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                     {stakeAccountMeta.inflationRewards.map(inflationReward => (
                       <ListItem className="justify-items border-b border-solblue-2 dark:border-solblue-darker" style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
                         <ListItemText className="w-1/3" primary={`${inflationReward.epoch}`} />
-                        <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SOL} SOL`} />
-                        <ListItemText className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SOL}`} />
+                        <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SOL`} />
+                        <ListItemText className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
                       </ListItem>
                     ))}
                   </List>
@@ -301,7 +301,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
   const [amount, setAmount] = useState('');
   const max = useMemo(() => {
     return mathjs.bignumber(stakeAccountLamports)
-      .div(LAMPORTS_PER_SOL)
+      .div(LAMPORTS_PER_SAFE)
       .toString();
   }, [stakeAccountLamports]);
 
@@ -315,7 +315,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
       </DialogTitle>
       <DialogContent>
         <TextField
-          placeholder="SOL"
+          placeholder="SAFE"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -326,7 +326,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
                 >
                   MAX
                 </Button>
-                SOL
+                SAFE
               </InputAdornment>
             ),
             inputProps: {
@@ -353,7 +353,7 @@ function WithdrawDialog({wallet, userPublicKey, stakePubkey, stakeAccountLamport
                   authorizedPubkey: userPublicKey,
                   toPubkey: userPublicKey,
                   lamports: mathjs.bignumber(amount)
-                    .mul(LAMPORTS_PER_SOL)
+                    .mul(LAMPORTS_PER_SAFE)
                     .toNumber(),
                 }).instructions,
                 []

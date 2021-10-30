@@ -13,7 +13,7 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "@project-serum/sol-wallet-adapter": "^0.2.4",
     "@pythnetwork/client": "^2.0.0",
-    "@solana/web3.js": "^1.18.0",
+    "@safecoin/web3.js": "^1.29.3",
     "humanize-duration-ts": "^2.1.1",
     "mathjs": "^9.4.5",
     "node-sass": "5.*",

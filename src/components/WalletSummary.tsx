@@ -1,6 +1,6 @@
 //import { Tooltip } from '@material-ui/core';
 import { parsePriceData } from '@pythnetwork/client';
-import { clusterApiUrl, Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import { clusterApiUrl, Connection, LAMPORTS_PER_SAFE, PublicKey } from '@safecoin/web3.js';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { AccountsContext } from '../contexts/accounts';
 import { useConnection, useSendConnection } from '../contexts/connection';
@@ -64,7 +64,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
 
   const totalStakedSOL = useMemo(() => {
     const totalLamports = stakeAccountMetas?.reduce((sum, current) => sum + current.lamports, 0);
-    return totalLamports !== undefined ? totalLamports / LAMPORTS_PER_SOL : undefined;
+    return totalLamports !== undefined ? totalLamports / LAMPORTS_PER_SAFE : undefined;
   }, [stakeAccountMetas]);
 
   // Yield first seed sequentially from unused seeds
@@ -78,7 +78,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
   }, [wallet, stakeAccountMetas]);
 
   const balance = useMemo(() => {
-    return systemProgramAccountInfo && (systemProgramAccountInfo.lamports / LAMPORTS_PER_SOL);
+    return systemProgramAccountInfo && (systemProgramAccountInfo.lamports / LAMPORTS_PER_SAFE);
   }, [systemProgramAccountInfo])
 
   const ratio = useMemo(() => {
@@ -97,7 +97,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
         <div className="w-0 md:w-1/3"></div>
         <div className="pb-3 pt-4 w-full md:w-1/3 md:pl-5">
           <p className="uppercase">Wallet Balance</p>
-          <p className="font-normal text-xl">{balance} SOL</p>
+          <p className="font-normal text-xl">{balance} SAFE</p>
           <p className="text-xs">
             ${(balance && SOLPriceUSD) ? formatPriceNumber.format(balance * SOLPriceUSD) : '-'} ({SOLPriceUSD ? formatPriceNumber.format(SOLPriceUSD) : '-'} $/SOL)
             {/* <Tooltip title="On-chain SOL price from pyth.network oracle">
@@ -146,7 +146,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
                 <p className="pb-1">
                   <span className="text-xs leading-none">Total<br />Staked</span>
                   <br />
-                  <span className="font-bold leading-6">{totalStakedSOL !== undefined ? formatPriceNumber.format(totalStakedSOL) : '-'} SOL</span>
+                  <span className="font-bold leading-6">{totalStakedSOL !== undefined ? formatPriceNumber.format(totalStakedSOL) : '-'} SAFE</span>
                   <br />
                   <span className="text-xs">
                     ${(SOLPriceUSD && totalStakedSOL !== undefined) ? formatPriceNumber.format(totalStakedSOL * SOLPriceUSD) : '-'}

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CircularProgress, IconButton, Tooltip } from '@material-ui/core';
-import { AccountInfo, Connection, Context, KeyedAccountInfo, ParsedAccountData, PublicKey } from '@solana/web3.js';
+import { AccountInfo, Connection, Context, KeyedAccountInfo, ParsedAccountData, PublicKey } from '@safecoin/web3.js';
 import {
   Link as RouterLink
 } from 'react-router-dom';

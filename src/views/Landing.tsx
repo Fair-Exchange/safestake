@@ -79,13 +79,13 @@ export function Landing() {
               </Typography>
 
               <div className="font-display uppercase text-4half sm:text-5xl md:text-6xl text-solblue-dark dark:text-solblue font-bold leading-tight">
-                <p className="inline px-2 md:block md:px-0">Stake your SOL</p>
+                <p className="inline px-2 md:block md:px-0">Stake your SAFE</p>
                 <p className="inline px-2 md:block md:px-0">manage accounts</p>
                 <p className="inline px-2 md:block md:px-0">earn rewards</p>
               </div>
 
               <div className="uppercase text-solblue-dark dark:text-gray-300 text-2xl sm:text-3xl pt-3 md:font-light dark:font-normal">
-                Staking Solana made easy
+                Staking Safecoin made easy
               </div>
 
               <Box m={4} />
@@ -93,7 +93,7 @@ export function Landing() {
                 <div className="flex justify-center text-center pb-24">
                   <Link to="/app">
                     <div className="solBtnAcid font-bold">
-                      <span className="text-md sm:text-xl p-2">Use Solstake</span>
+                      <span className="text-md sm:text-xl p-2">Use Safestake</span>
                     </div>
                   </Link>
                 </div>
@@ -105,7 +105,7 @@ export function Landing() {
   
               <div>
                 <IconButton
-                  href="https://github.com/rooware-io/solstake"
+                  href="https://github.com/Fair-Exchange/safestake"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <GitHub style={styles.smallIcon} />
@@ -116,7 +116,7 @@ export function Landing() {
                   <YouTube style={styles.largeIcon} />
                 </IconButton>
                 <IconButton
-                  href="https://discord.gg/r5fZHdfu"
+                  href="https://discord.com/invite/vQgYGJz"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <SvgIcon style={styles.smallIcon}>
@@ -124,7 +124,7 @@ export function Landing() {
                   </SvgIcon>
                 </IconButton>
                 <IconButton
-                  href="https://twitter.com/solstakeio"
+                  href="https://twitter.com/safecoins"
                   rel="noopener noreferrer" target="_blank"
                 >
                   <Twitter style={styles.mediumIcon} />
@@ -143,7 +143,7 @@ export function Landing() {
           <DialogContent>
             <Box m={1}>
               <Typography>
-                Thank you for registering, we will get back to you when solstake is production ready
+                Thank you for registering, we will get back to you when SafeStake is production ready
               </Typography>
             </Box>
           </DialogContent>

@@ -1,4 +1,4 @@
-import { AccountInfo, PublicKey } from "@solana/web3.js";
+import { AccountInfo, PublicKey } from "@safecoin/web3.js";
 import React, { useEffect, useMemo, useState } from "react";
 import { useConnection } from "./connection";
 import { useWallet } from "./wallet";

@@ -6,7 +6,7 @@ import {
   Signer,
   Transaction,
   TransactionInstruction,
-} from "@solana/web3.js";
+} from "@safecoin/web3.js";
 import React, { useContext, useMemo } from "react";
 import { WalletAdapter } from "../wallet-adapters/walletAdapter";
 

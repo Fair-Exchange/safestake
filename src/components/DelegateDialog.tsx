@@ -2,7 +2,7 @@ import 'react-virtualized/styles.css';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import React, { useContext, useEffect, useState } from "react";
 import { sendTransaction, useSendConnection, useSolanaExplorerUrlSuffix } from '../contexts/connection';
-import { LAMPORTS_PER_SOL, PublicKey, StakeProgram, ValidatorInfo, VoteAccountInfo } from '@solana/web3.js';
+import { LAMPORTS_PER_SAFE, PublicKey, StakeProgram, ValidatorInfo, VoteAccountInfo } from '@safecoin/web3.js';
 import { Button, Typography, Dialog, DialogActions, DialogContent, DialogTitle, Slider, TextField, Link, Box, CircularProgress, InputAdornment, Tooltip } from '@material-ui/core';
 import { useWallet } from '../contexts/wallet';
 import { useMonitorTransaction } from '../utils/notifications';
@@ -287,7 +287,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                     return (
                       <div>
                         <Typography>
-                          <Link color="secondary" href={`https://explorer.solana.com/address/${props.cellData.votePubkey}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
+                          <Link color="secondary" href={`https://explorer.safecoin.org/address/${props.cellData.votePubkey}${urlSuffix}`} rel="noopener noreferrer" target="_blank">
                             {props.cellData.name ? props.cellData.name : shortenAddress(props.cellData.votePubkey, 6)}
                           </Link>
                         </Typography>
@@ -296,11 +296,11 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   }}
                 />
                 <Column
-                  label="Stake (SOL)"
+                  label="Stake (SAFE)"
                   dataKey="activatedStake"
                   headerRenderer={basicHeaderRenderer}
                   cellRenderer={basicCellRenderer}
-                  cellDataGetter={({rowData}) => `${formatPriceNumber.format(rowData.voteAccountInfo.activatedStake / LAMPORTS_PER_SOL)} (${formatPct.format(rowData.voteAccountInfo.activatedStake / totalActivatedStake)})`}
+                  cellDataGetter={({rowData}) => `${formatPriceNumber.format(rowData.voteAccountInfo.activatedStake / LAMPORTS_PER_SAFE)} (${formatPct.format(rowData.voteAccountInfo.activatedStake / totalActivatedStake)})`}
                   width={180}
                 />
                 <Column

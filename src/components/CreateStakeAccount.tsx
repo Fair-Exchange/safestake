@@ -1,5 +1,5 @@
 import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, TextField, Typography } from "@material-ui/core";
-import { Authorized, Connection, LAMPORTS_PER_SOL, PublicKey, StakeProgram } from "@solana/web3.js";
+import { Authorized, Connection, LAMPORTS_PER_SAFE, PublicKey, StakeProgram } from "@safecoin/web3.js";
 import { useContext, useEffect, useState } from "react";
 import { AccountsContext } from "../contexts/accounts";
 import { sendTransaction } from "../contexts/connection";
@@ -25,8 +25,8 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
   const [amount, setAmount] = useState<string>('');
 
   useEffect(() => {
-    if (Number(amount) > (systemProgramAccountInfo?.lamports ?? 0) / LAMPORTS_PER_SOL) {
-      setError('Insufficient SOL balance');
+    if (Number(amount) > (systemProgramAccountInfo?.lamports ?? 0) / LAMPORTS_PER_SAFE) {
+      setError('Insufficient SAFE balance');
     }
     else {
       setError(null);
@@ -61,7 +61,7 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                SOL
+                SAFE
               </InputAdornment>
             ),
             inputProps: {
@@ -84,7 +84,7 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
               StakeProgram.programId,
             );
             const lamports = mathjs.bignumber(amount)
-              .mul(LAMPORTS_PER_SOL)
+              .mul(LAMPORTS_PER_SAFE)
               .toNumber();
 
             const transaction = StakeProgram.createAccountWithSeed({

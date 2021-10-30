@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import { Connection } from '@solana/web3.js';
+import { Connection } from '@safecoin/web3.js';
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
 import { useConnection, useSolanaExplorerUrlSuffix } from '../contexts/connection';
@@ -81,7 +81,7 @@ function ViewTransactionOnExplorerButton({ signature }: {signature: string}) {
       component="a"
       target="_blank"
       rel="noopener"
-      href={`https://explorer.solana.com/tx/${signature}` + urlSuffix}
+      href={`https://explorer.safecoin.org/tx/${signature}` + urlSuffix}
     >
       View on Explorer
     </Button>
