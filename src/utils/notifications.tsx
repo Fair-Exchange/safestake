@@ -59,7 +59,7 @@ export function useMonitorTransaction() {
       if (onSuccess) {
         onSuccess(signature);
       }
-    } catch (e) {
+    } catch (e:any) {
       closeSnackbar(id);
       setSending(false);
       console.warn(e);
@@ -117,7 +117,7 @@ export function useCallAsync() {
       if (onSuccess) {
         onSuccess(result);
       }
-    } catch (e) {
+    } catch (e:any) {
       console.warn(e);
       closeSnackbar(id);
       enqueueSnackbar(e.message, { variant: 'error' });

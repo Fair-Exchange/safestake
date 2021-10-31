@@ -20,11 +20,11 @@ interface Endpoint {
 export const ENDPOINTS: Endpoint[] = [
   {
     name: "mainnet-beta",
-    url: 'https://solstake.rpcpool.com',
+    url: clusterApiUrl("mainnet-beta"),
   },
   {
     name: "testnet",
-    url: 'https://solstake.testnet.rpcpool.com',
+    url: clusterApiUrl("testnet"),
   },
   {
     name: "devnet",
@@ -32,7 +32,7 @@ export const ENDPOINTS: Endpoint[] = [
   },
   {
     name: "localnet",
-    url: "http://127.0.0.1:8899",
+    url: "http://127.0.0.1:8328",
   },
 ];
 
