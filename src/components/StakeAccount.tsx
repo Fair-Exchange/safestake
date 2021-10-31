@@ -129,7 +129,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
           {connected &&
             <>
               <button
-                className="solBtnGray whitespace-nowrap"
+                className="safeBtnInverted whitespace-nowrap"
                 hidden={stakeActivationData?.state === "active" || stakeActivationData?.state === "deactivating"}
                 onClick={() => setDelegateOpen(true)}
                 disabled={!connected}
@@ -138,7 +138,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               </button>
 
               <button
-                className="solBtnGray whitespace-nowrap"
+                className="safeBtnInverted whitespace-nowrap"
                 hidden={stakeActivationData?.state === "inactive" || stakeActivationData?.state === "deactivating"}
                 onClick={async () => {
                   if(!wallet?.publicKey) {
@@ -169,7 +169,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               </button>
 
               <button
-                className="solBtnGray whitespace-nowrap"
+                className="safeBtnInverted whitespace-nowrap"
                 hidden={stakeActivationData?.state !== "inactive"}
                 onClick={() => {
                   setWithdrawOpen(true);
@@ -271,7 +271,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                     {stakeAccountMeta.inflationRewards.map(inflationReward => (
                       <ListItem className="justify-items border-b border-solblue-2 dark:border-solblue-darker" style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
                         <ListItemText className="w-1/3" primary={`${inflationReward.epoch}`} />
-                        <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SOL`} />
+                        <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SAFE`} />
                         <ListItemText className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
                       </ListItem>
                     ))}

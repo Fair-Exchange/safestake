@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .solBoxBlue {
-  @apply bg-gradient-to-r from-solblue-darker2 via-solblue-2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-dark dark:via-solblue-darker dark:to-solblue-dark dark:shadow-solgray rounded-lg;
+  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-dark dark:via-solblue-darker dark:to-solblue-dark dark:shadow-solgray rounded-lg;
 }
 
 .solBoxGray {
@@ -13,10 +13,11 @@
 }
 
 .solBtnGray {
-  @apply bg-gradient-to-t from-solgray-dark to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray;
+ /*@apply bg-gradient-to-t from-solgray-dark to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray;*/
+ @apply bg-gradient-to-t from-solgray-lightest to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full  dark:from-solblue-darker2 dark:to-solblue-darker dark:text-white ;
 }
 .solBtnGray:hover {
-  @apply bg-gradient-to-t from-solgray-lightest to-solgray-light shadow-solbluelight dark:from-solblue-darker2 dark:to-solblue-darker dark:text-solacid dark:shadow-solbluelight2;
+  @apply bg-gradient-to-t to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
 }
 
 .solBtnAcid {
@@ -35,7 +36,10 @@
 
 html {
   height: 100%;
-  background-color: rgba(83,153,165,1);
+  background-color: #E9F4FF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ebf3ff'/%3E%3Cstop offset='1' stop-color='%23ebf3ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23e6ecff'/%3E%3Cstop offset='1' stop-color='%23e6ecff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23e9ebff'/%3E%3Cstop offset='1' stop-color='%23e9ebff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23E9F4FF'/%3E%3Cstop offset='1' stop-color='%23E9F4FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23EEF2FF'/%3E%3Cstop offset='1' stop-color='%23EEF2FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23E5E4FF'/%3E%3Cstop offset='1' stop-color='%23E5E4FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body {
