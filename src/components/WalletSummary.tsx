@@ -109,7 +109,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
         </div>
         <div className="w-full pb-5 md:pb-0 md:w-1/3 md:pr-10 md:text-right">
           <button
-            className="solBtnGray whitespace-nowrap"
+            className="safeBtnInverted whitespace-nowrap"
             onClick={() => setOpen(true)}
           >
             Create Stake Account

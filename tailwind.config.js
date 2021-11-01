@@ -27,10 +27,11 @@ module.exports = {
           dark: 'red',
           darker: '#005779',
           darker2: '#005779',
+          darkest: '#001922',
         },
         solacid: {
           light: '#DFE281',
-          DEFAULT: '#D5E300',
+          DEFAULT: '#2EE59D',
           dark: '#A6AA00',
         },
         solgray: {
@@ -59,6 +60,7 @@ module.exports = {
         "solbluelight2": '0px 2px 12px 0 rgba(148, 253, 255, 0.4)',
         "solgray": '0px 5px 20px 0 rgba(30, 30, 30, 0.5)',
         "solblue-dark": '0px 5px 20px 0 rgba(16, 49, 71, 0.6)',
+        "safera": '0px 5px 20px 0 rgba(0, 0, 0, 0.3)',
       },
     },
   },

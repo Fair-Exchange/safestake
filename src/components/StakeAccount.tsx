@@ -129,7 +129,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
           {connected &&
             <>
               <button
-                className="safeBtnInverted whitespace-nowrap"
+                className="solBtnGray whitespace-nowrap"
                 hidden={stakeActivationData?.state === "active" || stakeActivationData?.state === "deactivating"}
                 onClick={() => setDelegateOpen(true)}
                 disabled={!connected}
@@ -138,7 +138,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               </button>
 
               <button
-                className="safeBtnInverted whitespace-nowrap"
+                className="solBtnGray whitespace-nowrap"
                 hidden={stakeActivationData?.state === "inactive" || stakeActivationData?.state === "deactivating"}
                 onClick={async () => {
                   if(!wallet?.publicKey) {
@@ -169,7 +169,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               </button>
 
               <button
-                className="safeBtnInverted whitespace-nowrap"
+                className="solBtnGray whitespace-nowrap"
                 hidden={stakeActivationData?.state !== "inactive"}
                 onClick={() => {
                   setWithdrawOpen(true);

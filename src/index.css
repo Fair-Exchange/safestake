@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .solBoxBlue {
-  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-dark dark:via-solblue-darker dark:to-solblue-dark dark:shadow-solgray rounded-lg;
+  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-darkest dark:via-solblue-darkest dark:to-solblue-darkest dark:shadow-safera rounded-lg;
 }
 
 .solBoxGray {
@@ -19,7 +19,13 @@
 .solBtnGray:hover {
   @apply bg-gradient-to-t to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
 }
-
+.safeBtnInverted {
+  /*@apply bg-gradient-to-t from-solgray-dark to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray;*/
+  @apply bg-gradient-to-t from-solgray-lightest to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full  dark:from-solblue-darker2 dark:to-solblue-darker dark:text-white ;
+ }
+ .safeBtnInverted:hover {
+   @apply bg-gradient-to-t to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
+ }
 .solBtnAcid {
   @apply bg-gradient-to-t from-solacid-dark to-solacid text-solblue-darker uppercase py-1 px-4 text-sm rounded-full shadow-solacidlight;
 }
