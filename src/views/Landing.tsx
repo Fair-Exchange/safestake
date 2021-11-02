@@ -4,7 +4,8 @@ import {
   Link
 } from 'react-router-dom';
 import { Box, Button, Typography, IconButton, Grid, Dialog, DialogTitle, DialogActions, DialogContent, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
-import { ReactComponent as SolstakeLogoMainSvg } from '../assets/logo-white.svg';
+import { ReactComponent as SafestakeLogoMainSvg } from '../assets/logo-white5.svg';
+import { ReactComponent as SafestakeLogoMainSvgDark } from '../assets/logo-dark.svg';
 import { GitHub, Twitter, YouTube } from '@material-ui/icons';
 import { ReactComponent as Discord } from '../assets/discord-brands.svg';
 import { Alert } from '@material-ui/lab';
@@ -71,7 +72,7 @@ export function Landing() {
             <Grid item xs={10}>
               <div className="flex justify-center text-center p-0">
                 <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/3 pt-5 md:pt-0">
-                  <SolstakeLogoMainSvg />
+                  <SafestakeLogoMainSvg />
                 </div>
               </div>
               <Typography style={{visibility: 'hidden'}}>

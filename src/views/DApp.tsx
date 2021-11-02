@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { accounInfoToStakeAccount as accountInfoToStakeAccount, findStakeAccountMetas, sortStakeAccountMetas, StakeAccountMeta } from '../utils/stakeAccounts';
 import { StakeAccountCard } from '../components/StakeAccount';
-import { ReactComponent as SolstakeLogoSvg } from '../assets/logo-white.svg';
+import { ReactComponent as SolstakeLogoSvg } from '../assets/logo-white5.svg';
 import { Info } from '@material-ui/icons';
 import { useWallet } from '../contexts/wallet';
 import { ENDPOINTS, useConnection, useConnectionConfig } from '../contexts/connection';
