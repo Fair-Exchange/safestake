@@ -6,7 +6,6 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-
         'fade-in-custom': {
           '0%': {
             opacity: '0',
@@ -80,7 +79,8 @@ module.exports = {
         "solbluelight2": '0px 2px 12px 0 rgba(148, 253, 255, 0.4)',
         "solgray": '0px 5px 20px 0 rgba(30, 30, 30, 0.5)',
         "solblue-dark": '0px 5px 20px 0 rgba(16, 49, 71, 0.6)',
-        "safera": '0px 5px 20px 0 rgba(0, 0, 0, 0.3)',
+        "safera": '0px 8px 15px rgba(0, 0, 0, 0.1);',
+        "safegreen": '0px 15px 20px rgba(46, 229, 157, 0.4)',
       },
     },
   },

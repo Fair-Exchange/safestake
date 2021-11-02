@@ -27,7 +27,7 @@
   @apply bg-gradient-to-t from-solblue-darker2 to-solblue-darker2 text-white uppercase py-1 px-4 text-sm rounded-full  dark:from-solgray-lightest dark:to-solgray-light dark:text-solblue-darkest ;
  }
  .safeBtnInverted:hover {
-   @apply bg-gradient-to-t from-solacid to-solacid text-white uppercase py-1 px-4 text-sm rounded-full dark:from-solacid dark:to-solacid dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
+   @apply bg-gradient-to-t from-solacid to-solacid text-white uppercase py-1 px-4 text-sm rounded-full dark:from-solacid dark:to-solacid dark:text-white shadow-safegreen dark:shadow-solbluelight2;
  }
 .solBtnAcid {
   @apply bg-gradient-to-t from-solacid-dark to-solacid text-solblue-darker uppercase py-1 px-4 text-sm rounded-full shadow-solacidlight;
@@ -37,10 +37,10 @@
 }
 
 .solBtnRewards {
-  @apply bg-gradient-to-b from-solgray to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-b-lg dark:from-solblue-dark dark:to-solblue-darker dark:text-gray-200;
+  @apply bg-gradient-to-b from-solgray to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-b-lg dark:from-solblue-darkest dark:to-solblue-darkest2 dark:text-gray-200;
 }
 .solBtnRewards:hover {
-  @apply bg-gradient-to-t from-solacid to-solacid-light shadow-solbluelight dark:from-solblue-dark dark:to-solblue-darker dark:text-solacid dark:shadow-none;
+  @apply bg-gradient-to-t text-solacid from-solgray-light to-solgray shadow-solbluelight dark:from-solblue-darkest2 dark:to-solblue-darkest2 dark:text-safealternate-accentblue;
 }
 
 html {

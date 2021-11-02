@@ -263,13 +263,13 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               <div className="relative transition-all duration-700 text-solblue-dark dark:text-solblue">
                 <Collapse in={rewardsOpen} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    <ListItem className="justify-items text-solacid border-b border-solacid" style={{padding: 1, paddingLeft: 20, paddingRight: 20, paddingTop: 15}}>
+                    <ListItem className="justify-items text-solacid border-solacid dark:text-white border-b dark:border-safealternate-accentblue" style={{padding: 1, paddingLeft: 20, paddingRight: 20, paddingTop: 15}}>
                         <ListItemText className="w-1/3" primary={`Epoch`} />
                         <ListItemText className="w-1/3" primary={`Reward`} />
                         <ListItemText className="w-1/3" primary={`Post Balance`} />
                     </ListItem>
                     {stakeAccountMeta.inflationRewards.map(inflationReward => (
-                      <ListItem className="justify-items border-b border-opacity-10 border-solblue-2 dark:border-solblue-darker" style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
+                      <ListItem className="justify-items  border-b border-opacity-10 border-solblue-2 dark:border-solblue-darker dark:border-opacity-10 " style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
                         <ListItemText className="w-1/3" primary={`${inflationReward.epoch}`} />
                         <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SAFE`} />
                         <ListItemText className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
