@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
 import {
   Link
 } from 'react-router-dom';
 import { Box, Button, Typography, IconButton, Grid, Dialog, DialogTitle, DialogActions, DialogContent, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
 import { ReactComponent as SafestakeLogoMainSvg } from '../assets/logo-white5.svg';
-import { ReactComponent as SafestakeLogoMainSvgDark } from '../assets/logo-dark.svg';
+import { ReactComponent as SafestakeLogoMainSvgDark } from '../assets/logo-darke.svg';
 import { GitHub, Twitter, YouTube } from '@material-ui/icons';
 import { ReactComponent as Discord } from '../assets/discord-brands.svg';
 import { Alert } from '@material-ui/lab';
 import { Color } from '@material-ui/lab/Alert';
+import { useDarkMode } from "../hooks/useDarkMode";
 
 const styles = {
     smallIcon: {
@@ -44,7 +45,19 @@ export function Landing() {
     const [message, setMessage] = useState<Message>({open: false, content: '', severity: 'success'});
     const [open, setOpen] = useState(false);
     const [openVideo, setOpenVideo] = useState(false);
-  
+    const [isDark, setisDark] = useState(false);
+
+    var darkmode = useDarkMode();
+    useEffect(() => {
+      
+      if (darkmode[0] === false) {
+        setisDark(false);
+      }
+      else {
+        setisDark(true);
+      }
+    }, []);
+
     function handleClose() {
       setOpen(false);
     }
@@ -58,7 +71,7 @@ export function Landing() {
     }
 
     const classes = useStyles();
-  
+    console.log("is dark ? ", isDark)
     return (
       <div id="landing">
         <div className={classes.root}>
@@ -72,7 +85,10 @@ export function Landing() {
             <Grid item xs={10}>
               <div className="flex justify-center text-center p-0">
                 <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/3 pt-5 md:pt-0">
-                  <SafestakeLogoMainSvg />
+                {isDark
+              ? <SafestakeLogoMainSvgDark />
+              : <SafestakeLogoMainSvg />
+            }
                 </div>
               </div>
               <Typography style={{visibility: 'hidden'}}>

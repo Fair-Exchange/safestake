@@ -7,6 +7,7 @@ import {
 import { accounInfoToStakeAccount as accountInfoToStakeAccount, findStakeAccountMetas, sortStakeAccountMetas, StakeAccountMeta } from '../utils/stakeAccounts';
 import { StakeAccountCard } from '../components/StakeAccount';
 import { ReactComponent as SolstakeLogoSvg } from '../assets/logo-white5.svg';
+import { ReactComponent as SolstakeLogoSvgDark } from '../assets/logo-darke.svg';
 import { Info } from '@material-ui/icons';
 import { useWallet } from '../contexts/wallet';
 import { ENDPOINTS, useConnection, useConnectionConfig } from '../contexts/connection';
@@ -17,10 +18,11 @@ import Epoch from '../components/Epoch';
 import WalletSummary from '../components/WalletSummary';
 import WalletConnector from '../components/WalletConnector';
 import { ThemeToggler } from '../components/ThemeToggler';
+import { useDarkMode } from "../hooks/useDarkMode";
 import { AccountsContext } from '../contexts/accounts';
 const DEMO_PUBLIC_KEY_STRING = '8BaNJXqMAEVrV7cgzEjW66G589ZmDvwajmJ7t32WpvxW';
 
-function StakeAccounts({stakeAccountMetas}: {stakeAccountMetas: StakeAccountMeta[]}) {
+function StakeAccounts({ stakeAccountMetas }: { stakeAccountMetas: StakeAccountMeta[] }) {
   if (stakeAccountMetas.length === 0) {
     return (
       <div className="solBoxGray w-full font-light flex flex-wrap md:justify-between items-center text-center">
@@ -43,7 +45,7 @@ function StakeAccounts({stakeAccountMetas}: {stakeAccountMetas: StakeAccountMeta
 }
 
 async function onStakeAccountChangeCallback(connection: Connection, keyedAccountInfo: KeyedAccountInfo, _context: Context, stakeAccounts: StakeAccountMeta[] | null, walletPublicKey: PublicKey): Promise<StakeAccountMeta[] | undefined> {
-  const {accountId, accountInfo} = keyedAccountInfo;
+  const { accountId, accountInfo } = keyedAccountInfo;
   console.log(`StakeAccount update for ${accountId.toBase58()}`);
 
   const index = stakeAccounts?.findIndex(extistingStakeAccountMeta =>
@@ -52,7 +54,7 @@ async function onStakeAccountChangeCallback(connection: Connection, keyedAccount
   let updatedStakeAccounts = stakeAccounts ? [...stakeAccounts] : [];
 
   // Ideally we should just subscribe as jsonParsed, but that isn't available through web3.js
-  const {value} = await connection.getParsedAccountInfo(accountId);
+  const { value } = await connection.getParsedAccountInfo(accountId);
   const parsedAccountInfo = value;
   console.log(accountInfo.lamports, accountInfo.data, accountInfo.owner.toBase58());
   if (!parsedAccountInfo) {
@@ -73,7 +75,7 @@ async function onStakeAccountChangeCallback(connection: Connection, keyedAccount
     console.log(`Could not find existing stake account for address, adding: ${stakeAccounts?.length} ${newStakeAccount}`);
     const naturalStakeAccountSeedPubkeys = await Promise.all(Array.from(Array(20).keys()).map(async i => {
       const seed = `${i}`;
-      return PublicKey.createWithSeed(walletPublicKey, seed, STAKE_PROGRAM_ID).then(pubkey => ({seed, pubkey}));
+      return PublicKey.createWithSeed(walletPublicKey, seed, STAKE_PROGRAM_ID).then(pubkey => ({ seed, pubkey }));
     }));
 
     const seed = naturalStakeAccountSeedPubkeys.find(element => element.pubkey.equals(accountId))?.seed ?? 'N.A.';
@@ -119,6 +121,18 @@ function DApp() {
   const [loading, setLoading] = useState<boolean>(false);
   const [stakeAccounts, setStakeAccounts] = useState<StakeAccountMeta[] | null>(null);
   const [open, setOpen] = useState(false);
+  const [isDark, setisDark] = useState(false);
+
+  var darkmode = useDarkMode();
+  useEffect(() => {
+
+    if (darkmode[0] === false) {
+      setisDark(false);
+    }
+    else {
+      setisDark(true);
+    }
+  }, []);
 
   useEffect(() => {
     setStakeAccounts(null);
@@ -141,7 +155,7 @@ function DApp() {
 
     // Try a few times with standoff
     let parsedAccountInfo: AccountInfo<Buffer | ParsedAccountData> | null = null;
-    for (let i = 0;i < 5;i++) {
+    for (let i = 0; i < 5; i++) {
       parsedAccountInfo = (await connection.getParsedAccountInfo(stakeAccountPublicKey)).value;
       if (parsedAccountInfo) {
         break;
@@ -232,25 +246,28 @@ function DApp() {
       })
     };
   }, [connection, stakeAccounts]);
-
+  console.log("dark from DAPP", isDark)
   return (
     <div id="dapp" className="h-full">
       {/* Header */}
       <div className="h-20 flex flex-wrap justify-between px-10 py-4">
         <div className="h-full w-1/2 md:w-1/3 xl:w-1/6 pt-2">
           <RouterLink to="/">
-            <SolstakeLogoSvg />
+            {isDark
+              ? <SolstakeLogoSvgDark />
+              : <SolstakeLogoSvg />
+            }
           </RouterLink>
         </div>
-        
-        <div>    
+
+        <div>
           <div className="block md:inline">
             <ThemeToggler />
-            <IconButton onClick={() => {setOpen(true); }}>
+            <IconButton onClick={() => { setOpen(true); }}>
               <Info />
             </IconButton>
           </div>
-          
+
           <div className="inline-block m-2">
             <Tooltip title="Use known stake account authority">
               <button className="solBtnGray p-0 m-0"

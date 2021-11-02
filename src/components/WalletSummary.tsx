@@ -143,7 +143,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
             <div className="px-5">
               {/* Percentage setting */}
               <div className="chart" style={{backgroundImage: `conic-gradient(#2EE59D ${ratio}%, #103147 ${ratio}%)`}}>
-                <p className="pb-1">
+                <p className="text-solblue-dark dark:text-solblue pb-1">
                   <span className="text-xs leading-none">Total<br />Staked</span>
                   <br />
                   <span className="font-bold leading-6">{totalStakedSOL !== undefined ? formatPriceNumber.format(totalStakedSOL) : '-'} SAFE</span>
