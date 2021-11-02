@@ -93,7 +93,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
   return (
     <>
       {/* Wallet balance */}
-      <div className="solBoxGray w-full font-light flex flex-wrap md:justify-between items-center text-center">
+      <div className="solBoxGray animate-fade-fast w-full font-light flex flex-wrap md:justify-between items-center text-center">
         <div className="w-0 md:w-1/3"></div>
         <div className="pb-3 pt-4 w-full md:w-1/3 md:pl-5">
           <p className="uppercase">Wallet Balance</p>
@@ -138,11 +138,11 @@ export default function WalletSummary(props: WalletSummaryProps) {
       <div className="w-full mt-3 flex flex-wrap md:justify-between items-center text-center">
         <div className="w-full pb-3 lg:border-r-4 lg:border-transparent">
           {/* pie chart */}
-          <div className="solBoxGray h-44 p-3.5 w-full font-light items-center text-center uppercase flex flex-wrap justify-center">
+          <div className="solBoxGray animate-fade-fast h-44 p-3.5 w-full font-light items-center text-center uppercase flex flex-wrap justify-center">
             {/* pie chart - css from added.css */}
             <div className="px-5">
               {/* Percentage setting */}
-              <div className="chart" style={{backgroundImage: `conic-gradient(#D5E300 ${ratio}%, #103147 ${ratio}%)`}}>
+              <div className="chart" style={{backgroundImage: `conic-gradient(#2EE59D ${ratio}%, #103147 ${ratio}%)`}}>
                 <p className="pb-1">
                   <span className="text-xs leading-none">Total<br />Staked</span>
                   <br />

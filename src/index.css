@@ -9,22 +9,22 @@
 }
 
 .solBoxGray {
-  @apply bg-solgray-light text-solblue-dark shadow-solbluelight rounded-lg dark:bg-solblue-darker2 dark:text-solblue dark:shadow-solblue-dark;
+  @apply bg-solgray-light text-solblue-dark shadow-solbluelight rounded-lg dark:bg-solblue-darker2 dark:text-white dark:shadow-solblue-dark;
 }
 
 .solBtnGray {
  /*@apply bg-gradient-to-t from-solgray-dark to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray;*/
- @apply bg-gradient-to-t from-solgray-lightest to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full  dark:from-solblue-darker2 dark:to-solblue-darker dark:text-white ;
+ @apply bg-gradient-to-t from-solgray-lightest to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full  dark:from-solgray-lightest dark:to-solgray-lightest dark:text-solblue-darkest ;
 }
 .solBtnGray:hover {
-  @apply bg-gradient-to-t to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
+  @apply bg-gradient-to-t from-solacid to-solacid text-white uppercase py-1 px-4 text-sm rounded-full dark:from-solacid dark:to-solacid dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
 }
 .safeBtnInverted {
   /*@apply bg-gradient-to-t from-solgray-dark to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray;*/
-  @apply bg-gradient-to-t from-solgray-lightest to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full  dark:from-solblue-darker2 dark:to-solblue-darker dark:text-white ;
+  @apply bg-gradient-to-t from-solblue-darker2 to-solblue-darker2 text-white uppercase py-1 px-4 text-sm rounded-full  dark:from-solgray-lightest dark:to-solgray-light dark:text-solblue-darkest ;
  }
  .safeBtnInverted:hover {
-   @apply bg-gradient-to-t to-solgray-light text-solblue-darker uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
+   @apply bg-gradient-to-t from-solacid to-solacid text-white uppercase py-1 px-4 text-sm rounded-full dark:from-solblue-darker dark:to-solblue-dark dark:text-white dark:shadow-solgray shadow-solbluelight dark:shadow-solbluelight2;
  }
 .solBtnAcid {
   @apply bg-gradient-to-t from-solacid-dark to-solacid text-solblue-darker uppercase py-1 px-4 text-sm rounded-full shadow-solacidlight;

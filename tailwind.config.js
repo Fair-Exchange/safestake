@@ -5,6 +5,20 @@ module.exports = {
   darkMode: 'class', // false or 'media' or 'class'
   theme: {
     extend: {
+      keyframes: {
+
+        'fade-in-custom': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          },
+        },
+      },
+      animation: {
+        'fade-fast': 'fade-in-custom 0.5s ease-out',
+      },
       fontFamily: {
         'display': ['Oswald', 'ui-sans-serif', 'system-ui'],
         'body': ['Quicksand', 'ui-sans-serif', 'system-ui'],
@@ -24,14 +38,14 @@ module.exports = {
           brighter2: '#4EC8C8',
           DEFAULT: '#5399A5',
           '2': '#457887',
-          dark: 'red',
+          dark: '#001922',
           darker: '#005779',
           darker2: '#005779',
           darkest: '#001922',
         },
         solacid: {
           light: '#DFE281',
-          DEFAULT: '#2EE59D',
+          DEFAULT: '#2EE59D', /* safe accent green */
           dark: '#A6AA00',
         },
         solgray: {

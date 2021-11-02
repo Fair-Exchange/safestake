@@ -83,7 +83,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
   
   return (
     <div className="bg-transparent w-full font-light pb-3">
-      <div className="solBoxGray dark:bg-solblue-dark rounded-b-none rounded-t-lg w-full bg-white uppercase flex flex-wrap md:justify-between items-center text-center md:text-left" style={{borderBottomLeftRadius: 0, borderBottomRightRadius: 0}}>
+      <div className="solBoxGray animate-fade-fast dark:bg-solblue-dark rounded-b-none rounded-t-lg w-full bg-white uppercase flex flex-wrap md:justify-between items-center text-center md:text-left" style={{borderBottomLeftRadius: 0, borderBottomRightRadius: 0}}>
         {/* Seed account info */}
         <div className="w-full pb-3 pt-3 md:pt-0 md:pb-0 md:w-3/12 md:pl-5 whitespace-nowrap">
           <span className="text-sm leading-6">SEED {stakeAccountMeta.seed} </span> 
@@ -129,7 +129,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
           {connected &&
             <>
               <button
-                className="solBtnGray whitespace-nowrap"
+                className="safeBtnInverted whitespace-nowrap"
                 hidden={stakeActivationData?.state === "active" || stakeActivationData?.state === "deactivating"}
                 onClick={() => setDelegateOpen(true)}
                 disabled={!connected}
@@ -138,7 +138,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               </button>
 
               <button
-                className="solBtnGray whitespace-nowrap"
+                className="safeBtnInverted whitespace-nowrap"
                 hidden={stakeActivationData?.state === "inactive" || stakeActivationData?.state === "deactivating"}
                 onClick={async () => {
                   if(!wallet?.publicKey) {
@@ -269,7 +269,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                         <ListItemText className="w-1/3" primary={`Post Balance`} />
                     </ListItem>
                     {stakeAccountMeta.inflationRewards.map(inflationReward => (
-                      <ListItem className="justify-items border-b border-solblue-2 dark:border-solblue-darker" style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
+                      <ListItem className="justify-items border-b border-opacity-10 border-solblue-2 dark:border-solblue-darker" style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
                         <ListItemText className="w-1/3" primary={`${inflationReward.epoch}`} />
                         <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SAFE`} />
                         <ListItemText className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
