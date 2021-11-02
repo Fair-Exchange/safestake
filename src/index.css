@@ -4,12 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.safeLogo {
+   @apply bg-solgray-lightest dark:bg-solgray-lightest;
+}
 .solBoxBlue {
-  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-darkest dark:via-solblue-darkest dark:to-solblue-darkest dark:shadow-safera rounded-lg;
+  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-darkest2 dark:via-solblue-darkest2 dark:to-solblue-darkest2 dark:shadow-safera rounded-lg;
 }
 
 .solBoxGray {
-  @apply bg-solgray-light text-solblue-dark shadow-solbluelight rounded-lg dark:bg-solblue-darker2 dark:text-white dark:shadow-solblue-dark;
+  @apply bg-solgray-light text-solblue-dark shadow-solbluelight rounded-lg dark:bg-solblue-darkest dark:text-white dark:shadow-safera;
 }
 
 .solBtnGray {

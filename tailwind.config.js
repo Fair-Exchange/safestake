@@ -42,6 +42,12 @@ module.exports = {
           darker: '#005779',
           darker2: '#005779',
           darkest: '#001922',
+          darkest2: '#01131a',
+          
+        },
+        safealternate: {
+          accentblue: '#56c9f9',
+          accentgreen: '#2EE59D',
         },
         solacid: {
           light: '#DFE281',

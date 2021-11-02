@@ -85,10 +85,11 @@ export function Landing() {
             <Grid item xs={10}>
               <div className="flex justify-center text-center p-0">
                 <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/3 pt-5 md:pt-0">
-                {isDark
+                {/*isDark
               ? <SafestakeLogoMainSvgDark />
               : <SafestakeLogoMainSvg />
-            }
+                */}
+                <SafestakeLogoMainSvg />
                 </div>
               </div>
               <Typography style={{visibility: 'hidden'}}>

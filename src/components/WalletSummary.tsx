@@ -142,7 +142,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
             {/* pie chart - css from added.css */}
             <div className="px-5">
               {/* Percentage setting */}
-              <div className="chart" style={{backgroundImage: `conic-gradient(#2EE59D ${ratio}%, #103147 ${ratio}%)`}}>
+              <div className="chart" style={{backgroundImage: `conic-gradient(#56c9f9 ${ratio}%, #103147 ${ratio}%)`}}>
                 <p className="text-solblue-dark dark:text-solblue pb-1">
                   <span className="text-xs leading-none">Total<br />Staked</span>
                   <br />
@@ -167,7 +167,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
               </div>
               <div className="text-left uppercase leading-5">
                 <p>
-                  <p className="bg-solacid w-3 h-3 inline-block"></p>
+                  <p className="bg-solacid dark:bg-safealternate-accentblue w-3 h-3 inline-block"></p>
                   <span className="text-light text-gray-400 leading-6 pl-1">Total staked</span>
                   {/* <br />
                   <span className="font-bold pl-5">123.11 SOL</span>
