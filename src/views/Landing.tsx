@@ -83,25 +83,25 @@ export function Landing() {
           direction="column"
           style={{ minHeight: '100vh', textAlign: 'center', overflow: 'hidden' }}
         >
-          <div className="flex justify-center text-center p-0">
+          <div className="flex sm:flex-col md:flex-col lg:flex-row justify-center text-center p-0">
             <div>
-              <div className="flex-col justify-center text-center p-0">
-              <div className="flex justify-center text-center pb-16">
-                <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
-                  {/*isDark
+              <div className="flex-col  justify-center text-center p-0">
+                <div className="flex  justify-center text-center pb-16">
+                  <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
+                    {/*isDark
               ? <SafestakeLogoMainSvgDark />
               : <SafestakeLogoMainSvg />
                 */}
-                  <SafestakeLogoMainSvg />
+                    <SafestakeLogoMainSvg />
                   </div>
                 </div>
                 <div className="flex justify-center text-center pb-24">
-                <Link to="/app">
-                  <div className=" tracking-wider safeBtnInverted">
-                    <span className="text-md sm:text-xl p-2">Stake now</span>
-                  </div>
-                </Link>
-              </div>
+                  <Link to="/app">
+                    <div className=" tracking-wider safeBtnInverted">
+                      <span className="text-md sm:text-xl p-2">Stake now</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
               <Typography style={{ visibility: 'hidden' }}>
                 Hack for non working svg scaling SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
