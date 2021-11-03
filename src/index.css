@@ -8,11 +8,11 @@
    @apply bg-solgray-lightest dark:bg-solgray-lightest;
 }
 .solBoxBlue {
-  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-darkest2 dark:via-solblue-darkest2 dark:to-solblue-darkest2 dark:shadow-safera rounded-lg;
+  @apply bg-gradient-to-r from-solblue-darker2 to-solblue-darker2 text-white shadow-solbluelight rounded-lg dark:from-solblue-darkest3 dark:via-solblue-darkest3 dark:to-solblue-darkest2 dark:shadow-safera rounded-lg;
 }
 
 .solBoxGray {
-  @apply bg-solgray-light text-solblue-dark shadow-solbluelight rounded-lg dark:bg-solblue-darkest dark:text-white dark:shadow-safera;
+  @apply bg-solgray-light text-solblue-dark shadow-solbluelight rounded-lg dark:bg-solblue-darkest2 dark:text-white dark:shadow-safera;
 }
 
 .solBtnGray {
@@ -93,7 +93,29 @@ code {
   background: #F1F1F1;
   border-radius: inherit;
 }
+.chartdark {
+  width: var(--size);
+  height: var(--size);
+  margin: 0em auto;
+  border-radius: 50%;
+  /* background-image: conic-gradient(#D5E300 var(--value), #103147 var(--value)); */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.chartdark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - var(--bord));
+  height: calc(100% - var(--bord));
+  background: #01131a;
+  border-radius: inherit;
+}
 p {
   position: relative;
   z-index: 1;

@@ -42,6 +42,7 @@ module.exports = {
           darker2: '#005779',
           darkest: '#001922',
           darkest2: '#01131a',
+          darkest3: '#000c10',
           
         },
         safealternate: {

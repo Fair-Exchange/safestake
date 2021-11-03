@@ -5,6 +5,7 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { AccountsContext } from '../contexts/accounts';
 import { useConnection, useSendConnection } from '../contexts/connection';
 import { useWallet } from '../contexts/wallet';
+import { useDarkMode } from '../hooks/useDarkMode';
 import { STAKE_PROGRAM_ID } from '../utils/ids';
 import { StakeAccountMeta } from '../utils/stakeAccounts';
 import { formatPriceNumber } from '../utils/utils';
@@ -57,11 +58,13 @@ export default function WalletSummary(props: WalletSummaryProps) {
   const [seed, setSeed] = useState('0');
   const [open, setOpen] = useState(false);
 
+  const [isDark, setIsDark] = useDarkMode();
   // useEffect(() => {
   //   getSOLPriceUSD()
   //     .then(setSOLPriceUSD);
   // }, []);
 
+  //console.log("isdarknew : ", isDark)
   const totalStakedSOL = useMemo(() => {
     const totalLamports = stakeAccountMetas?.reduce((sum, current) => sum + current.lamports, 0);
     return totalLamports !== undefined ? totalLamports / LAMPORTS_PER_SAFE : undefined;
@@ -142,7 +145,10 @@ export default function WalletSummary(props: WalletSummaryProps) {
             {/* pie chart - css from added.css */}
             <div className="px-5">
               {/* Percentage setting */}
-              <div className="chart" style={{backgroundImage: `conic-gradient(#56c9f9 ${ratio}%, #103147 ${ratio}%)`}}>
+              
+            
+            
+              <div className={ isDark ? 'chartdark' : 'chart' } style={{backgroundImage: `conic-gradient(${isDark ? '#56c9f9' : '#2de59d'} ${ratio}%, #103147 ${ratio}%)`}}>
                 <p className="text-solblue-dark dark:text-solblue pb-1">
                   <span className="text-xs leading-none">Total<br />Staked</span>
                   <br />
