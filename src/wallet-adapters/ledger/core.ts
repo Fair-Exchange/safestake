@@ -81,7 +81,7 @@ export function getSolanaDerivationPath(account?: number, change?: number) {
   var offset = 0;
   offset = derivationPath.writeUInt8(length, offset);
   offset = derivationPath.writeUInt32BE(harden(44), offset); // Using BIP44
-  offset = derivationPath.writeUInt32BE(harden(501), offset); // Solana's BIP44 path
+  offset = derivationPath.writeUInt32BE(harden(19165), offset); // Safecoin's BIP44 path
 
   if (length > 2) {
     offset = derivationPath.writeUInt32BE(harden(account), offset);
