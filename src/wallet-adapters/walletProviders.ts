@@ -7,7 +7,7 @@ export const WALLET_PROVIDERS = [
   {
     name: "Safelet",
     url: "https://wallet.safecoin.org/",
-    icon: `${ASSETS_URL}sollet.svg`,
+    icon: `https://raw.githubusercontent.com/araviel-io/CodeSnippets/main/safecoin_logo_only.svg`,
   },
   /*{
     name: "Solflare",
