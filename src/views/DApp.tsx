@@ -265,7 +265,7 @@ function DApp() {
           <div className="block md:inline">
             <ThemeToggler />
             <IconButton onClick={() => { setOpen(true); }}>
-              <Info />
+              <Info className="safeToggler" />
             </IconButton>
           </div>
 

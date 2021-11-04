@@ -9,7 +9,7 @@ export function ThemeToggler() {
     <IconButton
       onClick={(e) => setIsDark(!isDark)}
     >
-      <Brightness6 />
+      <Brightness6 className="safeToggler" />
     </IconButton>
   )
 }

@@ -84,7 +84,7 @@ export function Landing() {
           style={{ minHeight: '100vh', textAlign: 'center', overflow: 'hidden' }}
         >
           <div className="flex sm:flex-col md:flex-col lg:flex-row justify-center text-center p-0">
-            <div>
+            <div className="w-3/6">
               <div className="flex-col  justify-center text-center p-0">
                 <div className="flex  justify-center text-center pb-16">
                   <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
@@ -118,21 +118,14 @@ export function Landing() {
               <div className="uppercase text-solblue-dark dark:text-gray-300 text-2xl sm:text-3xl pt-3 md:font-light dark:font-normal">
                 Staking Safecoin made easy
               </div>
-
               <Box m={4} />
-
-
             </div>
-
           </div>
+
           <Grid item xs={10}>
-
-
-
-
-
-            <div className="flex justify-center text-center pb-5">
-              <div className="w-4/6 text-lg text-solblue-darker dark:text-gray-300">We’re just getting started around here. In the meantime stay updated on product releases, new features and more.</div>
+            <div className="flex flex-col items-center  justify-center text-center pb-5">
+              <div className="w-4/6   text-lg text-solblue-darker dark:text-gray-300">Safestake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.</div>
+              <div className="text-sm pt-5 opacity-70 dark:text-gray-300">A huge thanks to <a href="https://solstake.io">SolStake.io</a>, the world's first open source Solana Staking platform, for making this possible.</div>
             </div>
 
             <div>

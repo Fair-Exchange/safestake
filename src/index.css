@@ -43,6 +43,13 @@
   @apply bg-gradient-to-t text-solacid from-solgray-light to-solgray shadow-solbluelight dark:from-solblue-darkest2 dark:to-solblue-darkest2 dark:text-safealternate-accentblue;
 }
 
+.safeToggler {
+  @apply text-solblue-darker dark:text-white;
+}
+.safeToggler:hover {
+  @apply text-safealternate-accentgreen dark:text-safealternate-accentblue;
+}
+
 html {
   height: 100%;
   background-color: #E9F4FF;
