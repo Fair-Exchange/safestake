@@ -71,7 +71,7 @@ export function Landing() {
   }
 
   const classes = useStyles();
-  console.log("is dark ? ", isDark)
+  //console.log("is dark ? ", isDark)
   return (
     <div id="landing">
       <div className={classes.root}>

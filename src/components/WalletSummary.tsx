@@ -102,7 +102,8 @@ export default function WalletSummary(props: WalletSummaryProps) {
           <p className="uppercase">Wallet Balance</p>
           <p className="font-normal text-xl">{balance} SAFE</p>
           <p className="text-xs">
-            ${(balance && SOLPriceUSD) ? formatPriceNumber.format(balance * SOLPriceUSD) : '-'} ({SOLPriceUSD ? formatPriceNumber.format(SOLPriceUSD) : '-'} $ / SAFE)
+            {/* FIXME: to be reimplemented */}
+            { /* ${(balance && SOLPriceUSD) ? formatPriceNumber.format(balance * SOLPriceUSD) : '-'} ({SOLPriceUSD ? formatPriceNumber.format(SOLPriceUSD) : '-'} $ / SAFE) */}
             {/* <Tooltip title="On-chain SOL price from pyth.network oracle">
               <div>
                 <img src="pyth-icon-48x48.png" alt="PythNetwork" />
