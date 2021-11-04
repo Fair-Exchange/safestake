@@ -22,7 +22,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
           Enter you wallet public key (Stake account authority) or connect your wallet to view your stake accounts, balances, rewards and much more
         </Typography>
         <Typography>
-          For in-depth staking documentation about safecoin staking head to <Link color="secondary" href="https://docs.solana.com/staking" target="_blank">Solana staking documentation</Link>
+          For in-depth staking documentation about safecoin staking head to <Link color="secondary" href="https://docs.solana.com/staking" target="_blank">Safecoin staking documentation</Link>
         </Typography>
 
         <Box m={2} />
@@ -37,7 +37,7 @@ export default function HelpDialog(props: {open: boolean, handleClose: () => voi
         <Box m={2} />
         
         <Typography>
-          We'd love to hear from you - please send any feedback or suggestions to solstakeio@gmail.com
+          We'd love to hear from you - please send any feedback or suggestions to safe@safecoin.org
         </Typography>
       </Box>
     </DialogContent>
