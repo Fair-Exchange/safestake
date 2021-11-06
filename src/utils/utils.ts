@@ -135,3 +135,15 @@ humanizeDuration.addLanguage("short", {
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export function unixToLocalTime(slotsTime: number[]) {
+  const countSlotsTime = slotsTime.length;
+  let humanReadableTime: Array<Date> = [];
+
+  for(let i=0;i<countSlotsTime;i++) {
+      var date = new Date(slotsTime[i] * 1000);
+      humanReadableTime.push(date)
+  }
+  console.log("Date : ", humanReadableTime)
+  return humanReadableTime;
+}
