@@ -246,7 +246,7 @@ function DApp() {
       })
     };
   }, [connection, stakeAccounts]);
-  console.log("dark from DAPP", isDark)
+  //console.log("dark from DAPP", isDark)
   return (
     <div id="dapp" className="h-full">
       {/* Header */}

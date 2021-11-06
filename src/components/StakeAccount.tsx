@@ -10,9 +10,12 @@ import { getFirstBlockTime } from "../utils/block";
 import { useMonitorTransaction } from "../utils/notifications";
 import { StakeAccountMeta } from "../utils/stakeAccounts";
 import { formatPct, shortenAddress } from "../utils/utils";
+import { processEffSlotforUnixTS } from "../utils/timestamp";
+import { mergeNewStakeArray } from "../utils/timestamp";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { DelegateDialog } from "./DelegateDialog";
 import { WalletAdapter } from "../wallet-adapters/walletAdapter";
+import { RewardsToCsv } from "./RewardsToCsv";
 import * as mathjs from "mathjs";
 
 const MAX_EPOCH = new BN(2).pow(new BN(64)).sub(new BN(1));
@@ -33,6 +36,8 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
 
   const [isCopied, setIsCopied] = useState(false);
 
+  const [humanTimestamp, sethumanTimestamp] = useState<any>();
+
   function formatEpoch(epoch: BN) {
     return epoch.eq(MAX_EPOCH) ? '-' : epoch.toString();
   }
@@ -48,6 +53,28 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
     // Hidden dependency as we update only the underlying data
     // eslint-disable-next-line
   }, [connection, stakeAccountMeta, stakeAccountMeta.stakeAccount]);
+
+  const epochRewarded = useMemo(() =>  {
+    return stakeAccountMeta.inflationRewards.map(inflationReward => inflationReward.epoch)
+  }, [stakeAccountMeta]);
+
+
+  const effSlots = useMemo(() =>  {
+    return stakeAccountMeta.inflationRewards.map(inflationReward => inflationReward.effectiveSlot)
+  }, [stakeAccountMeta]);
+
+  useEffect(() => {
+    processEffSlotforUnixTS(connection,epochRewarded, effSlots)
+    .then(function(result:any) {
+      sethumanTimestamp(result)
+   })
+  }, [connection, epochRewarded, effSlots]);
+
+  const customArrayMemo = useMemo(() =>  {
+      if (humanTimestamp) {
+        return mergeNewStakeArray(humanTimestamp, stakeAccountMeta.inflationRewards);
+      }
+  }, [humanTimestamp, stakeAccountMeta.inflationRewards]);
 
   const totalRewards = useMemo(() => {
     return stakeAccountMeta.inflationRewards.reduce((sum, current) => sum + current.amount, 0)
@@ -267,12 +294,14 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                         <ListItemText className="w-1/3" primary={`Epoch`} />
                         <ListItemText className="w-1/3" primary={`Reward`} />
                         <ListItemText className="w-1/3" primary={`Post Balance`} />
+                        <ListItemText className="w-1/3" primary={`Reward date`} />
                     </ListItem>
-                    {stakeAccountMeta.inflationRewards.map(inflationReward => (
+                    {customArrayMemo?.map(inflationReward => (
                       <ListItem className="justify-items  border-b border-opacity-10 border-solblue-2 dark:border-solblue-darker dark:border-opacity-10 " style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
                         <ListItemText className="w-1/3" primary={`${inflationReward.epoch}`} />
                         <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SAFE`} />
-                        <ListItemText className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
+                        <ListItemText  className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
+                        <ListItemText disableTypography={true} className="text-xs font-semibold  w-1/3 " primary={`${inflationReward.timestamp}`} />
                       </ListItem>
                     ))}
                   </List>
@@ -280,6 +309,10 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
               </div>
             </li>
           </ul>
+          <div className="my-4"> 
+          <RewardsToCsv data={customArrayMemo}/> 
+          </div>
+         
         </div>
       </div>
     </div>
