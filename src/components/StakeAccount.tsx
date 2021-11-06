@@ -305,14 +305,14 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                       </ListItem>
                     ))}
                   </List>
+                  <div className="my-4"></div>
+                  <RewardsToCsv data={customArrayMemo}/> 
                 </Collapse>
               </div>
             </li>
+          
           </ul>
-          <div className="my-4"> 
-          <RewardsToCsv data={customArrayMemo}/> 
-          </div>
-         
+        
         </div>
       </div>
     </div>
