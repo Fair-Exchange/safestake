@@ -1,4 +1,4 @@
-import { Connection } from "@safecoin/web3.js";
+import { Connection, LAMPORTS_PER_SAFE } from "@safecoin/web3.js";
 import { unixToLocalTime } from "./utils";
 
 export async function processEffSlotforUnixTS(connection: Connection, epochs: number[], effslots: number[]) {
@@ -20,11 +20,11 @@ export function mergeNewStakeArray(timestamp: any[], nativeinfos: any[]) {
         let newMerged = [];
         for (let i = 0; i < timestamp.length; i++) {
             newMerged.push({
-                amount: nativeinfos[i].amount,
+                amount: nativeinfos[i].amount / LAMPORTS_PER_SAFE,
                 commission: nativeinfos[i].commission,
                 effectiveSlot: nativeinfos[i].effectiveSlot,
                 epoch: nativeinfos[i].epoch,
-                postBalance: nativeinfos[i].postBalance,
+                postBalance: nativeinfos[i].postBalance / LAMPORTS_PER_SAFE,
                 timestamp: timestamp[i]
             });
         }

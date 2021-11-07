@@ -299,14 +299,14 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                     {customArrayMemo?.map(inflationReward => (
                       <ListItem className="justify-items  border-b border-opacity-10 border-solblue-2 dark:border-solblue-darker dark:border-opacity-10 " style={{padding: 1, paddingLeft: 20, paddingRight: 20}} key={inflationReward.epoch}>
                         <ListItemText className="w-1/3" primary={`${inflationReward.epoch}`} />
-                        <ListItemText className="w-1/3" primary={`${inflationReward.amount / LAMPORTS_PER_SAFE} SAFE`} />
-                        <ListItemText  className="w-1/3" primary={`${inflationReward.postBalance / LAMPORTS_PER_SAFE}`} />
+                        <ListItemText className="w-1/3" primary={`${inflationReward.amount} SAFE`} />
+                        <ListItemText  className="w-1/3" primary={`${inflationReward.postBalance}`} />
                         <ListItemText disableTypography={true} className="text-xs font-semibold  w-1/3 " primary={`${inflationReward.timestamp}`} />
                       </ListItem>
                     ))}
                   </List>
                   <div className="my-4"></div>
-                  <RewardsToCsv data={customArrayMemo}/> 
+                  <RewardsToCsv datarray={customArrayMemo}/> 
                 </Collapse>
               </div>
             </li>
