@@ -144,6 +144,5 @@ export function unixToLocalTime(slotsTime: number[]) {
       var date = new Date(slotsTime[i] * 1000);
       humanReadableTime.push(date)
   }
-  console.log("Date : ", humanReadableTime)
   return humanReadableTime;
 }

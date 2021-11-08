@@ -37,6 +37,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
   const [isCopied, setIsCopied] = useState(false);
 
   const [humanTimestamp, sethumanTimestamp] = useState<any>();
+  const [unixTimestamp, setunixTimestamp] = useState<any>();
 
   function formatEpoch(epoch: BN) {
     return epoch.eq(MAX_EPOCH) ? '-' : epoch.toString();
@@ -65,8 +66,9 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
 
   useEffect(() => {
     processEffSlotforUnixTS(connection,epochRewarded, effSlots)
-    .then(function(result:any) {
-      sethumanTimestamp(result)
+    .then(function(timestamps:any) {
+      sethumanTimestamp(timestamps[1]);
+      setunixTimestamp(timestamps[0])
    })
   }, [connection, epochRewarded, effSlots]);
 
@@ -306,7 +308,7 @@ export function StakeAccountCard({stakeAccountMeta}: {stakeAccountMeta: StakeAcc
                     ))}
                   </List>
                   <div className="my-4"></div>
-                  <RewardsToCsv datarray={customArrayMemo}/> 
+                  <RewardsToCsv datarray={customArrayMemo} unix={unixTimestamp}/> 
                 </Collapse>
               </div>
             </li>
