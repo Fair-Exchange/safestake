@@ -65,11 +65,11 @@ export function ValidatorsProvider({ children = null as any }) {
       });
   }, [connection, connected]);
   
-  useEffect(() => {
+  /*useEffect(() => {
     if (!connected) { return; }
     getValidatorScores(cluster)
       .then(setValidatorScores);
-  }, [connected, cluster]);
+  }, [connected, cluster]);*/
 
   useEffect(() => {
     if (cluster !== 'mainnet-beta') {

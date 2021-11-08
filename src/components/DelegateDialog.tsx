@@ -280,7 +280,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                 <Column
                   label="name or account"
                   dataKey="name"
-                  width={240}
+                  width={300}
                   headerRenderer={basicHeaderRenderer}
                   cellDataGetter={({rowData}) => ({votePubkey: rowData.voteAccountInfo.votePubkey, name: rowData.validatorInfo?.info?.name})}
                   cellRenderer={(props: TableCellProps) => {
@@ -301,7 +301,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   headerRenderer={basicHeaderRenderer}
                   cellRenderer={basicCellRenderer}
                   cellDataGetter={({rowData}) => `${formatPriceNumber.format(rowData.voteAccountInfo.activatedStake / LAMPORTS_PER_SAFE)} (${formatPct.format(rowData.voteAccountInfo.activatedStake / totalActivatedStake)})`}
-                  width={180}
+                  width={240}
                 />
                 <Column
                   label="Fee"
@@ -309,9 +309,9 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   headerRenderer={basicHeaderRenderer}
                   cellDataGetter={({rowData}) => `${rowData.voteAccountInfo.commission}%`}
                   cellRenderer={basicCellRenderer}
-                  width={80}
+                  width={110}
                 />
-                <Column
+                {/*<Column
                   label="APY"
                   dataKey="apy"
                   headerRenderer={() => {
@@ -329,7 +329,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   cellDataGetter={({rowData}) => rowData.validatorApy?.apy ? formatPct.format(rowData.validatorApy.apy) : '-'}
                   cellRenderer={basicCellRenderer}
                   width={80}
-                />
+                />*/}
                 <Column
                   label="Website"
                   dataKey="website"
@@ -346,6 +346,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   }}
                   width={300}
                 />
+                {/* FIXME: validators rating from validators.app api
                 <Column
                   label="Score"
                   dataKey="validatorScore"
@@ -360,7 +361,7 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
                   cellDataGetter={({rowData}) => rowData.validatorScore}
                   cellRenderer={scoreCellRenderer}
                   width={170}
-                />
+                />*/}
               </Table>
             )}
           </AutoSizer>
