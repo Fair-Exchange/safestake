@@ -36,6 +36,7 @@ module.exports = {
           brighter: '#73FFFF',
           brighter2: '#4EC8C8',
           DEFAULT: '#5399A5',
+          lalert: '#a93030',
           '2': '#457887',
           dark: '#001922',
           darker: '#005779',
@@ -43,6 +44,7 @@ module.exports = {
           darkest: '#001922',
           darkest2: '#01131a',
           darkest3: '#000c10',
+          dalert: '#5399A5',
           
         },
         safealternate: {
