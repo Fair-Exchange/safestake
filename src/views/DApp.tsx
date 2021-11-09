@@ -121,18 +121,6 @@ function DApp() {
   const [loading, setLoading] = useState<boolean>(false);
   const [stakeAccounts, setStakeAccounts] = useState<StakeAccountMeta[] | null>(null);
   const [open, setOpen] = useState(false);
-  const [isDark, setisDark] = useState(false);
-
-  var darkmode = useDarkMode();
-  useEffect(() => {
-
-    if (darkmode[0] === false) {
-      setisDark(false);
-    }
-    else {
-      setisDark(true);
-    }
-  }, []);
 
   useEffect(() => {
     setStakeAccounts(null);

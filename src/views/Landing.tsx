@@ -5,12 +5,12 @@ import {
 } from 'react-router-dom';
 import { Box, Button, Typography, IconButton, Grid, Dialog, DialogTitle, DialogActions, DialogContent, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
 import { ReactComponent as SafestakeLogoMainSvg } from '../assets/logo-white5.svg';
-import { ReactComponent as SafestakeLogoMainSvgDark } from '../assets/logo-darke.svg';
 import { GitHub, Twitter, YouTube } from '@material-ui/icons';
 import { ReactComponent as Discord } from '../assets/discord-brands.svg';
 import { Alert } from '@material-ui/lab';
 import { Color } from '@material-ui/lab/Alert';
 import { useDarkMode } from "../hooks/useDarkMode";
+import { ValidatorListStandAlone } from '../components/ValidatorListStandAlone';
 
 const styles = {
   smallIcon: {
@@ -122,6 +122,7 @@ export function Landing() {
             </div>
           </div>
 
+          <ValidatorListStandAlone/>
           <Grid item xs={10}>
             <div className="flex flex-col items-center  justify-center text-center pb-5">
               <div className="w-4/6   text-lg text-solblue-darker dark:text-gray-300">Safestake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.</div>
