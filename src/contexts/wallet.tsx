@@ -1,4 +1,4 @@
-import Wallet from "@project-serum/sol-wallet-adapter";
+import Wallet from "@araviel/safe-wallet-adapter";
 import React, {
   useCallback,
   useContext,
