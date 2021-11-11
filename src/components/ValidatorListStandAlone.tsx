@@ -1,44 +1,15 @@
 import 'react-virtualized/styles.css';
-import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import React, { useContext, useEffect, useState } from "react";
-import { sendTransaction, useSendConnection, useSolanaExplorerUrlSuffix } from '../contexts/connection';
-import { LAMPORTS_PER_SAFE, PublicKey, StakeProgram, ValidatorInfo, VoteAccountInfo } from '@safecoin/web3.js';
-import { Button, Typography, Dialog, DialogActions, DialogContent, DialogTitle, Slider, TextField, Link, Box, CircularProgress, InputAdornment, Tooltip } from '@material-ui/core';
-import { useWallet } from '../contexts/wallet';
-import { useMonitorTransaction } from '../utils/notifications';
+import { useSolanaExplorerUrlSuffix } from '../contexts/connection';
+import { LAMPORTS_PER_SAFE, PublicKey, ValidatorInfo, VoteAccountInfo } from '@safecoin/web3.js';
+import { Typography, Link } from '@material-ui/core';
 import { formatPct, formatPriceNumber, shortenAddress, sleep } from '../utils/utils';
-import { Column, Table, TableHeaderProps, TableCellProps } from 'react-virtualized';
-import { defaultRowRenderer } from 'react-virtualized/dist/es/Table';
 import { ValidatorScore } from '../utils/validatorsApp';
-import { ValidatorScoreTray } from './ValidatorScoreTray';
 import { ValidatorsContext } from '../contexts/validators';
 import { useAsyncAbortable } from 'react-async-hook';
-import { useParams } from 'react-router-dom';
 import { ValidatorApy } from '../utils/stakeviewApp';
 
 const IMG_SRC_DEFAULT = 'placeholder-questionmark.png';
-
-function basicCellRenderer(props: TableCellProps) {
-    return (
-        <Typography>
-            {props.cellData}
-        </Typography>
-    );
-}
-
-function basicHeaderRenderer(props: TableHeaderProps) {
-    return (
-        <Typography>
-            {props.label}
-        </Typography>
-    );
-}
-
-function scoreCellRenderer(props: TableCellProps) {
-    return props.cellData ?
-        <ValidatorScoreTray validatorScore={props.cellData} />
-        : "N.A.";
-}
 
 interface ValidatorMeta {
     voteAccountInfo: VoteAccountInfo;
@@ -132,21 +103,11 @@ async function batchMatcher(
 }
 
 export function ValidatorListStandAlone() {
-    /*  const { stakePubkey, open, handleClose } = props;
-      const sendConnection = useSendConnection();
-      const { wallet } = useWallet();
-      const { monitorTransaction, sending } = useMonitorTransaction();*/
     const urlSuffix = useSolanaExplorerUrlSuffix();
-
-    const [maxComission, setMaxComission] = useState<number>(100);
 
     const { voteAccountInfos, validatorInfos, validatorScores, validatorApys, totalActivatedStake } = useContext(ValidatorsContext);
 
     const [validatorMetas, setValidatorMetas] = useState<ValidatorMeta[]>([]);
-    const [filteredValidatorMetas, setFilteredValidatorMetas] = useState<ValidatorMeta[]>([]);
-    const [selectedIndex, setSelectedIndex] = useState<number>();
-    const { validator } = useParams() as any;
-    const [searchCriteria, setSearchCriteria] = useState<string>('');
 
     console.log("validatorMetas :", validatorMetas)
     // Batched validator meta building
@@ -166,29 +127,6 @@ export function ValidatorListStandAlone() {
         }
     }, [voteAccountInfos, validatorInfos, validatorScores]);
 
-    useEffect(() => {
-        if (validator) {
-            setSearchCriteria(validator);
-            setSelectedIndex(0);
-        }
-    }, [validator])
-
-    useEffect(() => {
-        setSelectedIndex(undefined);
-        setFilteredValidatorMetas(validatorMetas.filter(meta => {
-            const votePubkeyMatches = searchCriteria ? meta.voteAccountInfo.votePubkey.includes(searchCriteria) : true;
-            const nameMatches = searchCriteria ? meta.validatorInfo?.info.name.toLowerCase().includes(searchCriteria.toLowerCase()) : true;
-
-            return (meta.voteAccountInfo.commission <= maxComission) && (votePubkeyMatches || nameMatches);
-        }));
-    }, [validatorMetas, maxComission, searchCriteria]);
-
-    useEffect(() => {
-        if (selectedIndex !== undefined && selectedIndex >= filteredValidatorMetas.length) {
-            setSelectedIndex(undefined);
-        }
-    }, [filteredValidatorMetas, selectedIndex]);
-    //console.log("meta : ", validatorMetas)
     if (validatorMetas.length > 0) {
         return (
             <>
@@ -250,10 +188,7 @@ export function ValidatorListStandAlone() {
                         </table>
                     </div>
                 </div>
-
-               
             </>
-
         );
     } else {
         return (

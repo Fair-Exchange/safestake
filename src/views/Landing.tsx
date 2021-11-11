@@ -58,17 +58,16 @@ export function Landing() {
   }
 
   const classes = useStyles();
-  //console.log("is dark ? ", isDark)
   return (
     <div id="landing">
       <div className={classes.root} style={{ minHeight: '120vh', textAlign: 'center', overflow: 'hidden' }}>
 
         <div className="flex flex-col items-center">
           <div className="sm:block lg:flex sm:flex-wrap md:flex-col lg:flex-row justify-center text-center lg:mt-16">
-            <div className="sm:w-2/6 md:w-3/6">
+            <div>
               <div className="flex-col  justify-center text-center p-0">
                 <div className="flex  justify-center text-center pb-16">
-                  <div className="sm:w-1/4 w-2/4  md:w-3/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
+                  <div className=" w-2/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
                     <SafestakeLogoMainSvg />
                   </div>
                 </div>
@@ -143,9 +142,6 @@ export function Landing() {
           <iframe width="560" height="315" src="https://www.youtube.com/embed/JUDG6j5ktW4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </Dialog>
-      {/* <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div> */}
       <Snackbar open={message.open} autoHideDuration={10000} onClose={handleCloseSnackbar}>
         <Alert onClose={handleClose} severity={message.severity}>
           {message.content}
