@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import {
   Link
 } from 'react-router-dom';
-import { Box, Button, Typography, IconButton, Grid, Dialog, DialogTitle, DialogActions, DialogContent, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
+import { Typography, IconButton, Grid, Dialog, makeStyles, Theme, createStyles, Snackbar, SvgIcon } from '@material-ui/core';
 import { ReactComponent as SafestakeLogoMainSvg } from '../assets/logo-white5.svg';
 import { GitHub, Twitter, YouTube } from '@material-ui/icons';
 import { ReactComponent as Discord } from '../assets/discord-brands.svg';
 import { Alert } from '@material-ui/lab';
 import { Color } from '@material-ui/lab/Alert';
-import { useDarkMode } from "../hooks/useDarkMode";
 import { ValidatorListStandAlone } from '../components/ValidatorListStandAlone';
 
 const styles = {
@@ -45,18 +44,6 @@ export function Landing() {
   const [message, setMessage] = useState<Message>({ open: false, content: '', severity: 'success' });
   const [open, setOpen] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
-  const [isDark, setisDark] = useState(false);
-
-  var darkmode = useDarkMode();
-  useEffect(() => {
-
-    if (darkmode[0] === false) {
-      setisDark(false);
-    }
-    else {
-      setisDark(true);
-    }
-  }, []);
 
   function handleClose() {
     setOpen(false);
@@ -74,28 +61,18 @@ export function Landing() {
   //console.log("is dark ? ", isDark)
   return (
     <div id="landing">
-      <div className={classes.root}>
+      <div className={classes.root} style={{ minHeight: '120vh', textAlign: 'center', overflow: 'hidden' }}>
 
-        <Grid
-          container
-          alignItems="center"
-          justify="center"
-          direction="column"
-          style={{ minHeight: '100vh', textAlign: 'center', overflow: 'hidden' }}
-        >
-          <div className="flex sm:flex-col md:flex-col lg:flex-row justify-center text-center p-0">
-            <div className="w-3/6">
+        <div className="flex flex-col items-center">
+          <div className="sm:block lg:flex sm:flex-wrap md:flex-col lg:flex-row justify-center text-center lg:mt-16">
+            <div className="sm:w-2/6 md:w-3/6">
               <div className="flex-col  justify-center text-center p-0">
                 <div className="flex  justify-center text-center pb-16">
-                  <div className="w-10/12 sm:1/4 md:w-3/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
-                    {/*isDark
-              ? <SafestakeLogoMainSvgDark />
-              : <SafestakeLogoMainSvg />
-                */}
+                  <div className="sm:w-1/4 w-2/4  md:w-3/4 lg:w-2/3 xl:w-1/8 pt-5 md:pt-0">
                     <SafestakeLogoMainSvg />
                   </div>
                 </div>
-                <div className="flex justify-center text-center pb-24">
+                <div className="flex justify-center text-center md:pb-24">
                   <Link to="/app">
                     <div className=" tracking-wider safeBtnInverted">
                       <span className="text-md sm:text-xl p-2">Stake now</span>
@@ -107,22 +84,19 @@ export function Landing() {
                 Hack for non working svg scaling SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
               </Typography>
             </div>
-
-            <div>
+            <>
               <div className="font-display uppercase text-4half sm:text-5xl md:text-6xl text-solblue-dark dark:text-solblue font-bold leading-tight">
                 <p className="inline px-2 md:block md:px-0">Stake your SAFE</p>
                 <p className="inline px-2 md:block md:px-0">manage accounts</p>
                 <p className="inline px-2 md:block md:px-0">earn rewards</p>
-              </div>
 
-              <div className="uppercase text-solblue-dark dark:text-gray-300 text-2xl sm:text-3xl pt-3 md:font-light dark:font-normal">
-                Staking Safecoin made easy
+                <div className="uppercase text-solblue-dark dark:text-gray-300 text-2xl sm:text-3xl pt-3 md:font-light dark:font-normal">
+                  Staking Safecoin made easy
+                </div>
               </div>
-              <Box m={4} />
-            </div>
+            </>
           </div>
-
-          <ValidatorListStandAlone/>
+          <ValidatorListStandAlone />
           <Grid item xs={10}>
             <div className="flex flex-col items-center  justify-center text-center pb-5">
               <div className="w-4/6   text-lg text-solblue-darker dark:text-gray-300">Safestake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.</div>
@@ -157,29 +131,8 @@ export function Landing() {
               </IconButton>
             </div>
           </Grid>
-        </Grid>
+        </div>
       </div>
-      <Dialog
-        title="Email sent!"
-        fullWidth={true}
-        open={open}
-        onClose={handleClose}
-      >
-        <DialogTitle>Email sent!</DialogTitle>
-        <DialogContent>
-          <Box m={1}>
-            <Typography>
-              Thank you for registering, we will get back to you when SafeStake is production ready
-            </Typography>
-          </Box>
-        </DialogContent>
-
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            OK
-          </Button>
-        </DialogActions>
-      </Dialog>
       <Dialog
         open={openVideo}
         fullWidth
