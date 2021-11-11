@@ -11,7 +11,7 @@ const CONFIG_PROGRAM_ID = new PublicKey('Config111111111111111111111111111111111
 async function getValidatorInfos(connection: Connection) {
   const validatorInfoAccounts = await connection.getProgramAccounts(CONFIG_PROGRAM_ID);
 
-  console.log(validatorInfoAccounts.length);
+  //console.log(validatorInfoAccounts.length);
   return validatorInfoAccounts.flatMap(validatorInfoAccount => {
     const validatorInfo = ValidatorInfo.fromConfigData(validatorInfoAccount.account.data);
     return validatorInfo ? [validatorInfo] : [];
@@ -41,12 +41,14 @@ export function ValidatorsProvider({ children = null as any }) {
   const [validatorApys, setValidatorApys] = useState<ValidatorApy[]>([]);
   const [totalActivatedStake, setTotalActivatedStake] = useState(0);
 
+//console.log(voteAccountInfos)
+
   const connection = useConnection();
   const { cluster } = useConnectionConfig();
   const { connected } = useWallet();
   
   useEffect(() => {
-    if (!connected) { return; }
+    
     connection.getVoteAccounts()
       .then(voteAccountStatus => {
         const activatedStake = voteAccountStatus.current.concat(voteAccountStatus.delinquent).reduce((sum, current) => sum + current.activatedStake, 0);
@@ -57,7 +59,7 @@ export function ValidatorsProvider({ children = null as any }) {
   }, [connection, connected]);
   
   useEffect(() => {
-    if (!connected) { return; }
+    
     getValidatorInfos(connection)
       .then(validatorInfos => {
         console.log(`validatorInfos.length: ${validatorInfos.length}`);

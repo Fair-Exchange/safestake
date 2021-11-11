@@ -69,3 +69,53 @@
 .score-2 {
   color: green;
 }
+.table {
+  border-spacing: 0 15px;
+}
+
+.table tr {
+  border-radius: 20px;
+}
+
+tr td:nth-child(n + 4),
+tr th:nth-child(n + 4) {
+  border-radius: 0 0.625rem 0.625rem 0;
+}
+
+tr td:nth-child(1),
+tr th:nth-child(1) {
+  border-radius: 0.625rem 0 0 0.625rem;
+}
+/* width */ 
+.arascroll::-webkit-scrollbar {
+  margin-top: 15px;
+  width: 8px;
+  height: 16px;
+}
+
+/* Track */
+.arascroll::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: transparent;
+  
+}
+.arascroll::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 15px; 
+}
+
+.arascroll::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 15px;
+}
+/* Handle */
+.arascroll::-webkit-scrollbar-thumb {
+  background: #001922;
+  border-radius: 100vh;
+  border: 3px solid #001922;
+}
+
+/* Handle on hover */
+.arascroll::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
