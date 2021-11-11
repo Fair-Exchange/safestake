@@ -192,8 +192,8 @@ export function ValidatorListStandAlone() {
     if (validatorMetas.length > 0) {
         return (
             <>
-                <div className="col-span-12 lg:w-3/5 py-6" >
-                    <div className="flex px-2 solBoxGray text-center text-gray-500 z-10">
+                <div className="col-span-12 lg:w-3/5 py-8" >
+                    <div className="flex relative px-2 solBoxGray text-center text-gray-500 z-10">
                         <div className="w-2/5 p-3">identity</div>
                         <div className="w-1/6 p-3">stake</div>
                         <div className="w-1/12 p-3">com</div>

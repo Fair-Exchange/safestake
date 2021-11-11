@@ -72,7 +72,7 @@ export function Landing() {
                     <SafestakeLogoMainSvg />
                   </div>
                 </div>
-                <div className="flex justify-center text-center md:pb-24">
+                <div className="flex justify-center text-center md:pb-10">
                   <Link to="/app">
                     <div className=" tracking-wider safeBtnInverted">
                       <span className="text-md sm:text-xl p-2">Stake now</span>
@@ -98,7 +98,7 @@ export function Landing() {
           </div>
           <ValidatorListStandAlone />
           <Grid item xs={10}>
-            <div className="flex flex-col items-center  justify-center text-center pb-5">
+            <div className="flex flex-col items-center  justify-center text-center pb-5 pt-10">
               <div className="w-4/6   text-lg text-solblue-darker dark:text-gray-300">Safestake is a completely open source, non-custodial staking platform for simple straightforward staking and management of Safecoin, the world's most performant community blockchain.</div>
               <div className="text-sm pt-5 opacity-70 dark:text-gray-300">A huge thanks to <a href="https://solstake.io">SolStake.io</a>, the world's first open source Solana Staking platform, for making this possible.</div>
             </div>
