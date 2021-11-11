@@ -14,7 +14,7 @@ export async function processEffSlotforUnixTS(connection: Connection, epochs: nu
     }
     unixTimeAndHuman.push(unixTime);
     unixTimeAndHuman.push(unixToLocalTime(unixTime));
-    console.log("uniunixTimeAndHumanxtime: ", unixTimeAndHuman)
+    //console.log("uniunixTimeAndHumanxtime: ", unixTimeAndHuman)
     return unixTimeAndHuman;
 }
 

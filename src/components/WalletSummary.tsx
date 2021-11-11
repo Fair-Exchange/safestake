@@ -64,7 +64,6 @@ export default function WalletSummary(props: WalletSummaryProps) {
   //     .then(setSOLPriceUSD);
   // }, []);
 
-  //console.log("isdarknew : ", isDark)
   const totalStakedSOL = useMemo(() => {
     const totalLamports = stakeAccountMetas?.reduce((sum, current) => sum + current.lamports, 0);
     return totalLamports !== undefined ? totalLamports / LAMPORTS_PER_SAFE : undefined;

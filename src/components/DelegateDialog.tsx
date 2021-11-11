@@ -62,7 +62,7 @@ async function batchMatcher(
   let remainingValidatorInfos = [...validatorInfos];
   let remainingValidatorApys = [...validatorApys];
 
-  console.log('scores', validatorScores.length)
+  //console.log('scores', validatorScores.length)
 
   for(let i = 0; i < validatorScores.length; i++) {
     const validatorScore = validatorScores[i];
