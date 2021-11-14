@@ -11,7 +11,6 @@ const CONFIG_PROGRAM_ID = new PublicKey('Config111111111111111111111111111111111
 async function getValidatorInfos(connection: Connection) {
   const validatorInfoAccounts = await connection.getProgramAccounts(CONFIG_PROGRAM_ID);
 
-  //console.log(validatorInfoAccounts.length);
   return validatorInfoAccounts.flatMap(validatorInfoAccount => {
     const validatorInfo = ValidatorInfo.fromConfigData(validatorInfoAccount.account.data);
     return validatorInfo ? [validatorInfo] : [];

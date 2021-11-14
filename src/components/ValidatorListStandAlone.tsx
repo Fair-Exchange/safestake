@@ -109,7 +109,6 @@ export function ValidatorListStandAlone() {
 
     const [validatorMetas, setValidatorMetas] = useState<ValidatorMeta[]>([]);
 
-    //console.log("validatorMetas :", validatorMetas)
     // Batched validator meta building
     // Order is VoteAccountInfo[] order, until validatorScores is available
     // VoteAccountInfo with no available score go at the bottom of the list

@@ -7,7 +7,6 @@ import {
 import { accounInfoToStakeAccount as accountInfoToStakeAccount, findStakeAccountMetas, sortStakeAccountMetas, StakeAccountMeta } from '../utils/stakeAccounts';
 import { StakeAccountCard } from '../components/StakeAccount';
 import { ReactComponent as SolstakeLogoSvg } from '../assets/logo-white5.svg';
-import { ReactComponent as SolstakeLogoSvgDark } from '../assets/logo-darke.svg';
 import { Info } from '@material-ui/icons';
 import { useWallet } from '../contexts/wallet';
 import { ENDPOINTS, useConnection, useConnectionConfig } from '../contexts/connection';
@@ -20,7 +19,8 @@ import WalletConnector from '../components/WalletConnector';
 import { ThemeToggler } from '../components/ThemeToggler';
 import { useDarkMode } from "../hooks/useDarkMode";
 import { AccountsContext } from '../contexts/accounts';
-const DEMO_PUBLIC_KEY_STRING = '8BaNJXqMAEVrV7cgzEjW66G589ZmDvwajmJ7t32WpvxW';
+
+const DEMO_PUBLIC_KEY_STRING = 'GCm26PYvw9UPWRNBjuifpGKN7VQ15Pk2JSNP7hhxy3XX';
 
 function StakeAccounts({ stakeAccountMetas }: { stakeAccountMetas: StakeAccountMeta[] }) {
   if (stakeAccountMetas.length === 0) {
@@ -100,7 +100,7 @@ function ClusterSelector() {
 
   return (
     <select
-      className="solBtnGray"
+      className="solBtnGray custom-select"
       value={url}
       onChange={e => setUrl(e.target.value as string)}
     >

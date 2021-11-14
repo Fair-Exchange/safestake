@@ -119,3 +119,7 @@ tr th:nth-child(1) {
 .arascroll::-webkit-scrollbar-thumb:hover {
   background: #a0aec0;
 }
+.custom-select {
+  color:black!important;
+  font-family: Arial;
+}

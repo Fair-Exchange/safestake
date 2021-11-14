@@ -50,7 +50,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
 
   const connection = useConnection();
   const sendConnection = useSendConnection();
-  const {wallet} = useWallet();
+  const {wallet, connected} = useWallet();
 
   const {systemProgramAccountInfo} = useContext(AccountsContext);
   const [SOLPriceUSD, setSOLPriceUSD] = useState<number>();
@@ -111,12 +111,14 @@ export default function WalletSummary(props: WalletSummaryProps) {
           </p>
         </div>
         <div className="w-full pb-5 md:pb-0 md:w-1/3 md:pr-10 md:text-right">
+          {!connected ??
           <button
             className="safeBtnInverted whitespace-nowrap"
             onClick={() => setOpen(true)}
           >
             Create Stake Account
           </button>
+  }
         </div>
       </div>
 
