@@ -215,7 +215,14 @@ export function DelegateDialog(props: {stakePubkey: PublicKey, open: boolean, ha
             The top 200 validators in terms of APY offer between 7.0 and 8.1% APY (even with fees)
           </Typography>
         </div>
-
+        <div className=" my-10" role="alert">
+          <div className="bg-yellow-500 text-white font-bold rounded-t px-4 py-2">
+            Bootstrap Validator/node deactivation
+          </div>
+          <div className="border border-t-0 border-yellow-400 rounded-b bg-yellow-100 px-4 py-3 text-yellow-700">
+            <p>Bootstrap Node <strong>83E5RMejo6d98FV1EAXTx5t4bvoDMoxE4DboDee3VJsu</strong> will be decommissioned soon. Please move all stake to alternate Validators ASAP.</p>
+          </div>
+        </div>
         <TextField
           title="Search"
           fullWidth

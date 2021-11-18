@@ -33,10 +33,10 @@ async function getSOLPriceUSD(): Promise<number | undefined> {
 
 async function findFirstAvailableSeed(userPublicKey: PublicKey, stakeAccountMetas: StakeAccountMeta[]) {
   let seedIndex = 0;
-  while(1) {
+  while (1) {
     const newStakeAccountPubkey = await PublicKey.createWithSeed(userPublicKey, seedIndex.toString(), STAKE_PROGRAM_ID);
     const matching = stakeAccountMetas.find(meta => newStakeAccountPubkey.equals(meta.address));
-    if(!matching) {
+    if (!matching) {
       break;
     }
     seedIndex++;
@@ -46,13 +46,13 @@ async function findFirstAvailableSeed(userPublicKey: PublicKey, stakeAccountMeta
 }
 
 export default function WalletSummary(props: WalletSummaryProps) {
-  const {stakeAccountMetas, addStakeAccount} = props;
+  const { stakeAccountMetas, addStakeAccount } = props;
 
   const connection = useConnection();
   const sendConnection = useSendConnection();
-  const {wallet, connected} = useWallet();
+  const { wallet, connected } = useWallet();
 
-  const {systemProgramAccountInfo} = useContext(AccountsContext);
+  const { systemProgramAccountInfo } = useContext(AccountsContext);
   const [SOLPriceUSD, setSOLPriceUSD] = useState<number>();
 
   const [seed, setSeed] = useState('0');
@@ -71,7 +71,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
 
   // Yield first seed sequentially from unused seeds
   useEffect(() => {
-    if(!stakeAccountMetas || !wallet?.publicKey) {
+    if (!stakeAccountMetas || !wallet?.publicKey) {
       return;
     }
 
@@ -91,7 +91,29 @@ export default function WalletSummary(props: WalletSummaryProps) {
   if (!systemProgramAccountInfo) {
     return <></>;
   }
+  
+  function renderCreateStakeAccount() {
+    if (connected === true) {
+      return (
+        <button
+          className="safeBtnInverted whitespace-nowrap"
+          onClick={() => setOpen(true)}
+        >
+          Create Stake Account
+        </button>
+      )
 
+    } else {
+      <button
+        className="safeBtnInverted whitespace-nowrap"
+        onClick={() => setOpen(true)}
+      >
+        Wallet not connected
+      </button>
+    }
+
+  }
+  console.log("is connected or bot : ", connected)
   return (
     <>
       {/* Wallet balance */}
@@ -111,18 +133,16 @@ export default function WalletSummary(props: WalletSummaryProps) {
           </p>
         </div>
         <div className="w-full pb-5 md:pb-0 md:w-1/3 md:pr-10 md:text-right">
-          {!connected ??
-          <button
-            className="safeBtnInverted whitespace-nowrap"
-            onClick={() => setOpen(true)}
-          >
-            Create Stake Account
-          </button>
-  }
+          {renderCreateStakeAccount() }
         </div>
       </div>
-
-      { wallet && open &&
+      {/*alert */}
+      <div className="rounded-lg bg-yellow-100 dark:shadow-safera shadow-solbluelight animate-fade-fast mt-3 w-full font-light flex flex-wrap md:justify-center items-center text-center">
+          <div className="rounded-b bg-yellow-100 px-4 py-3 text-yellow-700">
+            <p>Bootstrap Node <strong><b>83E5RMejo6d98FV1EAXTx5t4bvoDMoxE4DboDee3VJsu</b></strong> will be decommissioned soon. Please move all stake to alternate Validators ASAP.</p>
+          </div>
+      </div>
+      {wallet && open &&
         <CreateStakeAccountDialog
           seed={seed}
           open={open}
@@ -147,10 +167,7 @@ export default function WalletSummary(props: WalletSummaryProps) {
             {/* pie chart - css from added.css */}
             <div className="px-5">
               {/* Percentage setting */}
-              
-            
-            
-              <div className={ isDark ? 'chartdark' : 'chart' } style={{backgroundImage: `conic-gradient(${isDark ? '#56c9f9' : '#2de59d'} ${ratio}%, #103147 ${ratio}%)`}}>
+              <div className={isDark ? 'chartdark' : 'chart'} style={{ backgroundImage: `conic-gradient(${isDark ? '#56c9f9' : '#2de59d'} ${ratio}%, #103147 ${ratio}%)` }}>
                 <p className="text-solblue-dark dark:text-solblue pb-1">
                   <span className="text-xs leading-none">Total<br />Staked</span>
                   <br />

@@ -47,6 +47,12 @@ export function CreateStakeAccountDialog({seed, open, setOpen, wallet, connectio
       </DialogTitle>
       <DialogContent>
         <Typography>
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative my-10" role="alert">
+            <strong className="font-bold">Warning : </strong>
+            <span className="block sm:inline">Leave 1 Safe on the main address for futures transaction fees.</span>
+          </div>
+        </Typography>
+        <Typography>
           Seed: {seed}
         </Typography>
         <TextField
