@@ -4,7 +4,7 @@ module.exports = {
   purge: {
     content : ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     options: {
-      safelist: ['text-solblue-darker', 'text-solgray-lightest', 'fill-current', 'dark:text-solgray-lightest'],
+      safelist: ['text-solblue-darker', 'text-solgray-lightest', 'fill-current', 'dark:text-solgray-lightest', 'dark:text-safealternate-accentblue', 'text-safealternate-accentblue'],
     },
   },
   darkMode: 'class', // false or 'media' or 'class'
