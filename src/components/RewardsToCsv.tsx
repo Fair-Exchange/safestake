@@ -3,8 +3,11 @@ import { CSVLink } from "react-csv";
 export function RewardsToCsv(props: {datarray: any, unix: any}) {
     // merge by adding the unix timestamp to csv
     let newMerged = [];
+        //console.log(props.datarray: ${props.datarray});
+        if(props.datarray != undefined){
         for (let i = 0; i < props.datarray.length; i++) {
-           
+        try{
+
             newMerged.push({
                 rewardAmount: props.datarray[i].amount,
                 commission: props.datarray[i].commission,
@@ -14,7 +17,14 @@ export function RewardsToCsv(props: {datarray: any, unix: any}) {
                 timestamp: props.datarray[i].timestamp,
                 unixtimestamp: props.unix[i],
             });
+            } catch (error) {
+            if (error instanceof Error) {
+                console.error(error.message);
+            }
+            }
         }
+        }
+
     return (
         <CSVLink
             filename={"SafeRewards.csv"}
@@ -24,4 +34,4 @@ export function RewardsToCsv(props: {datarray: any, unix: any}) {
             Download csv
         </CSVLink>
     )
-}
+} 
