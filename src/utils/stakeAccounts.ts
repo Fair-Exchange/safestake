@@ -102,7 +102,7 @@ export async function findStakeAccountMetas(connection: Connection, walletAddres
 
     let startEpoch = epochInfo.epoch - 1; // No rewards yet for the current epoch, so query from previous epoch
     const tasks: (() => Promise<(InflationReward | null)[]>)[] = [];
-for(let epoch = startEpoch;epoch > startEpoch - 1;epoch--) { 
+    for(let epoch = startEpoch;epoch > minEpoch;epoch--) {
       tasks.push(() => connection.getInflationReward(
         newStakeAccountMetas.map(accountMeta => accountMeta.address),
         epoch,
